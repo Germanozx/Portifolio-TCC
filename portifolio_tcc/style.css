@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: white;
+    text-decoration: none;   
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.navbar {
+    font-size: 50px;
+    text-transform: uppercase;
+    letter-spacing: 35px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 70px;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px;
+    position: fixed;
+    top: 9;
+    left: 3;
+    width: 7.9%;
+background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    font-family: system-ui, 
+    -apple-system,Helvetica, Arial, 
+    sans-serif;
+    background-color: black;
+    height: 15vh;
+}
+
+main {
+    background: url("") no-repeat
+    center center;
+    background-size: cover;
+    height: 92vh;
+}
+
+.nav-list {
+    list-style-type: style none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    
+}
