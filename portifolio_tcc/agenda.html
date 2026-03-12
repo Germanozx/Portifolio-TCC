@@ -5,271 +5,343 @@
 <title>Agenda</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(rgba(0, 32, 88, 0.85), rgba(0, 32, 88, 0.85)),
-                    url("background.jpg");
-        background-size: cover;
-        background-position: center;
-        color: white;
-    }
-    
-    /* Navbar */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 25px 80px;
-    }
-    
-    .logo {
-        font-size: 42px;
-        letter-spacing: 10px;
-        font-weight: bold;
-        color: white;
-    }
-    
-    .menu a {
-        text-decoration: none;
-        color: white;
-        margin-left: 40px;
-        font-size: 18px;
-        padding: 10px 20px;
-        background: linear-gradient(45deg, #0A1F44, #1E3A70);
-        border-radius: 30px;
-        transition: 0.3s;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        display: inline-block;
-    }
-    
-    .menu a:hover {
-        transform: scale(1.1);
-        color: #ffffff;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    }
-    
-    /* Container */
-    .container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 20px;
-    }
-    
-    /* Calendário */
-    .calendar {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 20px;
-    }
-    
-    .day {
-        background: rgba(10, 31, 68, 0.9);
-        border-radius: 15px;
-        padding: 15px;
-        height: 130px;
-        cursor: pointer;
-        transition: 0.3s;
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-    }
-    
-    .day:hover {
-        transform: scale(1.05);
-        border-color: #ffffff;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    }
-    
-    .day-number {
-        font-weight: bold;
-        color: #ffffff;
-    }
-    
-    .event {
-        background: #ffffff;
-        color: #0A1F44;
-        padding: 4px 8px;
-        border-radius: 6px;
-        font-size: 12px;
-        margin-top: 5px;
-        display: block;
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    /* Modal Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-    
-    .modal-content {
-        background: rgba(10, 31, 68, 0.95);
-        padding: 20px;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        width: 400px;
-    }
-    
-    .modal-content h2 {
-        color: #ffffff;
-        margin-bottom: 20px;
-    }
-    
-    .modal-content input {
-        width: 90%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ffffff;
-        border-radius: 5px;
-        background: #0A1F44;
-        color: white;
-    }
-    
-    .modal-content button {
-        padding: 10px 20px;
-        margin: 5px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    
-    .modal-content .save-btn {
-        background: #1E3A70;
-        color: white;
-    }
-    
-    .modal-content .save-btn:hover {
-        background: #FFD700;
-        color: #0A1F44;
-    }
-    
-    .modal-content .cancel-btn {
-        background: #FFD700;
-        color: #0A1F44;
-    }
-    
-    .modal-content .cancel-btn:hover {
-        background: #1E3A70;
-        color: white;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(rgba(0, 32, 88, 0.85), rgba(0, 32, 88, 0.85)), url("background.jpg");
+background-size: cover;
+background-position: center;
+color: white;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+}
+
+.logo{
+font-size:42px;
+letter-spacing:10px;
+font-weight:bold;
+color:white;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+margin-left:40px;
+font-size:18px;
+padding:10px 20px;
+background:linear-gradient(45deg,#0A1F44,#1E3A70);
+border-radius:30px;
+transition:0.3s;
+box-shadow:0 0 10px rgba(255,215,0,0.3);
+display:inline-block;
+}
+
+.menu a:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px rgba(255,215,0,0.6);
+}
+
+.container{
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+text-align:center;
+}
+
+.title{
+font-size:36px;
+margin-bottom:20px;
+text-transform:uppercase;
+letter-spacing:2px;
+}
+
+.calendar{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:20px;
+}
+
+.day{
+background:rgba(10,31,68,0.9);
+border-radius:15px;
+padding:15px;
+height:130px;
+cursor:pointer;
+transition:0.3s;
+border:1px solid rgba(255,215,0,0.3);
+box-shadow:0 0 10px rgba(255,215,0,0.2);
+}
+
+.day:hover{
+transform:scale(1.05);
+border-color:#ffffff;
+box-shadow:0 0 20px rgba(255,215,0,0.5);
+}
+
+.day-number{
+font-weight:bold;
+}
+
+.event{
+background:#ffffff;
+color:#0A1F44;
+padding:4px 8px;
+border-radius:6px;
+font-size:12px;
+margin-top:5px;
+display:block;
+font-weight:bold;
+text-align:center;
+}
+
+.month-navigation{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.month-navigation button{
+padding:10px 20px;
+background:#1E3A70;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.month-navigation button:hover{
+background:#ffffff;
+color:#0A1F44;
+}
+
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal-content{
+background:rgba(10,31,68,0.95);
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 20px rgba(255,255,255,0.2);
+width:400px;
+}
+
+.modal-content input{
+width:90%;
+padding:10px;
+margin-bottom:20px;
+border:1px solid #1E3A70;
+border-radius:5px;
+background:#0A1F44;
+color:white;
+}
+
+.modal-buttons{
+display:flex;
+justify-content:center;
+gap:10px;
+}
+
+.modal-buttons button{
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.save-btn{background:#1E3A70;color:white;}
+.cancel-btn{background:#ffffff;color:#0A1F44;}
+
 </style>
 </head>
 
 <body>
 
 <div class="navbar">
-    <div class="logo">T C C</div>
-    <div class="menu">
-        <a href="index.html">voltar</a>
-    </div>
+<div class="logo">T C C</div>
+<div class="menu">
+<a href="index.html">voltar</a>
+</div>
 </div>
 
 <div class="container">
-    <h2 style="margin-bottom:20px;">Agenda Mensal</h2>
-    <div class="calendar" id="calendar"></div>
+<h1 class="title">Agenda Mensal</h1>
+
+<div class="month-navigation">
+<button onclick="changeMonth(-1)">&#8592; Mês Anterior</button>
+<h2 id="monthYear"></h2>
+<button onclick="changeMonth(1)">Próximo Mês &#8594;</button>
 </div>
 
-<!-- Modal -->
+<div class="calendar" id="calendar"></div>
+</div>
+
+
 <div class="modal" id="modal">
-    <div class="modal-content">
-        <h2>Adicionar Lembrete</h2>
-        <input type="text" id="reminderInput" placeholder="Digite seu lembrete aqui..." />
-        <button class="save-btn" onclick="saveReminder()">Salvar</button>
-        <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
-    </div>
+<div class="modal-content">
+
+<h2>Lembrete</h2>
+
+<input type="text" id="reminderInput" placeholder="Digite o lembrete">
+
+<div class="modal-buttons">
+<button class="save-btn" onclick="saveReminder()">Salvar</button>
+<button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+</div>
+
+</div>
 </div>
 
 <script>
-    const calendar = document.getElementById("calendar");
-    const modal = document.getElementById("modal");
-    const reminderInput = document.getElementById("reminderInput");
-    let events = JSON.parse(localStorage.getItem("events")) || {};
 
-    // Cria os dias do calendário
-    for (let i = 1; i <= 31; i++) {
-        const day = document.createElement("div");
-        day.classList.add("day");
-        day.innerHTML = `<div class="day-number">${i}</div>`;
+const calendar=document.getElementById("calendar");
+const modal=document.getElementById("modal");
+const reminderInput=document.getElementById("reminderInput");
+const monthYear=document.getElementById("monthYear");
 
-        // Adiciona os eventos existentes ao dia
-        if (events[i]) {
-            events[i].forEach((eventText, index) => {
-                const event = document.createElement("span");
-                event.classList.add("event");
-                event.textContent = eventText;
+const months=[
+"Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+"Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+];
 
-                // Permite editar ou excluir o evento ao clicar
-                event.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    const action = prompt(
-                        `Editar ou excluir o lembrete:\n\n"${eventText}"\n\nDigite o novo texto para editar ou deixe vazio para excluir.`
-                    );
+let currentMonth=new Date().getMonth();
+let currentYear=new Date().getFullYear();
 
-                    if (action === "") {
-                        events[i].splice(index, 1);
-                        if (events[i].length === 0) {
-                            delete events[i];
-                        }
-                    } else if (action !== null) {
-                        events[i][index] = action;
-                    }
+let events=JSON.parse(localStorage.getItem("events"))||{};
 
-                    localStorage.setItem("events", JSON.stringify(events));
-                    location.reload();
-                });
+function renderCalendar(){
 
-                day.appendChild(event);
-            });
-        }
+calendar.innerHTML="";
 
-        // Adiciona um novo lembrete ao dia
-        day.addEventListener("click", () => {
-            openModal(i);
-        });
+monthYear.textContent=`${months[currentMonth]} ${currentYear}`;
 
-        calendar.appendChild(day);
-    }
+const daysInMonth=new Date(currentYear,currentMonth+1,0).getDate();
 
-    function openModal(day) {
-        modal.style.display = "flex";
-        reminderInput.setAttribute("data-day", day);
-    }
+for(let i=1;i<=daysInMonth;i++){
 
-    function closeModal() {
-        modal.style.display = "none";
-        reminderInput.value = "";
-    }
+const day=document.createElement("div");
+day.classList.add("day");
+day.innerHTML=`<div class="day-number">${i}</div>`;
 
-    function saveReminder() {
-        const day = reminderInput.getAttribute("data-day");
-        const reminder = reminderInput.value;
+const eventKey=`${currentYear}-${currentMonth}-${i}`;
 
-        if (reminder) {
-            if (!events[day]) {
-                events[day] = [];
-            }
-            events[day].push(reminder);
-            localStorage.setItem("events", JSON.stringify(events));
-            location.reload();
-        }
-    }
+if(events[eventKey]){
+
+events[eventKey].forEach((eventText,index)=>{
+
+const event=document.createElement("span");
+event.classList.add("event");
+event.textContent=eventText;
+
+event.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+const action=prompt(
+`Editar ou excluir o lembrete:\n\n"${eventText}"\n\nDigite novo texto ou deixe vazio para excluir.`
+);
+
+if(action===""){
+events[eventKey].splice(index,1);
+if(events[eventKey].length===0) delete events[eventKey];
+}
+
+else if(action!==null){
+events[eventKey][index]=action;
+}
+
+localStorage.setItem("events",JSON.stringify(events));
+renderCalendar();
+
+});
+
+day.appendChild(event);
+
+});
+
+}
+
+day.addEventListener("click",()=>openModal(eventKey));
+
+calendar.appendChild(day);
+
+}
+
+}
+
+function changeMonth(direction){
+
+currentMonth+=direction;
+
+if(currentMonth<0){
+currentMonth=11;
+currentYear--;
+}
+
+else if(currentMonth>11){
+currentMonth=0;
+currentYear++;
+}
+
+renderCalendar();
+
+}
+
+function openModal(dayKey){
+
+modal.style.display="flex";
+reminderInput.setAttribute("data-day",dayKey);
+
+}
+
+function closeModal(){
+
+modal.style.display="none";
+reminderInput.value="";
+
+}
+
+function saveReminder(){
+
+const dayKey=reminderInput.getAttribute("data-day");
+const reminder=reminderInput.value;
+
+if(reminder){
+
+if(!events[dayKey]) events[dayKey]=[];
+
+events[dayKey].push(reminder);
+
+localStorage.setItem("events",JSON.stringify(events));
+
+}
+
+renderCalendar();
+closeModal();
+
+}
+
+renderCalendar();
+
 </script>
 
 </body>
